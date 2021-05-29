@@ -14,6 +14,7 @@
         transform: scale(1);
     }
 }
+
 .body {
     background-color: #394342;
     width: 100%;
@@ -264,4 +265,10 @@
         }
     }
 
+}
+@media (max-width: 1024px) {
+    .movies__container {
+        grid-template-columns:  2fr 2fr 2fr 2fr;
+        grid-template-rows:  2fr 2fr 2fr 2fr 2fr;
+    }
 }
