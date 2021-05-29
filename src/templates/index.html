@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gallery</title>
+</head>
+    <body class="body">
+        <div class="body__overlay"></div>
+        <header class="header">
+            <div class="header__title-box">
+                <img class="header__title-box__image" src="../images/content/title-image.png">
+                <h3 class="header__title-box__title">Film Gallery</h3>
+            </div>
+            <div class="header__home-page-button"></div>
+            <div class="header__select">
+                <div class="header__select__header">
+                    <span class="header__select__header__current-item">None</span>
+                    <div class="header__select__header__icon">&#8595;</div>
+                </div>
+
+                <div class="header__select__body">
+                    <div class="header__select__body__item" id="sort-by-date-release-down">Date release down</div>                   
+                    <div class="header__select__body__item" id="sort-by-date-release-up">Date release up</div>
+                    <div class="header__select__body__item" id="sort-by-popularity-down">Popularity down</div>
+                    <div class="header__select__body__item" id="sort-by-popularity-up">Popularity up</div>
+                </div>
+            </div>
+                <button class="header__sign-button" type="button" >Sign In/Sign Up</button>
+                <button class="header__log-out-button" type="button" >Log Out</button>
+                <p class="header__user-name"></p>
+        </header>
+        <main>
+            <div class="preloader">
+                <div class="loader"></div>
+            </div>
+            <div class="movies__container"></div>
+            <div class="pagination">
+                <button class="pagination__btn pagination__btn-first" type="button">First</button>
+                <button class="pagination__btn pagination__btn-previos" type="button">Previous</button>
+                    <ul class="pagination__ul">
+                        <li class="pagination__ul__li pagination__ul__current">1</li>
+                        <li class="pagination__ul__li">2</li>
+                        <li class="pagination__ul__li">3</li>
+                        <li class="pagination__ul__li">4</li>
+                        <li class="pagination__ul__li">5</li>
+                        <li style="display:none" class="pagination__ul__li">6</li>
+                        <li style="display:none" class="pagination__ul__li">7</li>
+                        <li style="display:none" class="pagination__ul__li">8</li>
+                        <li style="display:none" class="pagination__ul__li">9</li>
+                        <li style="display:none" class="pagination__ul__li">10</li>
+                        <li style="display:none" class="pagination__ul__li">11</li>
+                        <li style="display:none" class="pagination__ul__li">12</li>
+                        <li style="display:none" class="pagination__ul__li">13</li>
+                        <li style="display:none" class="pagination__ul__li">14</li>
+                        <li style="display:none" class="pagination__ul__li">15</li>
+                    </ul>
+                <button class="pagination__btn pagination__btn-next" type="button">Next</button>
+                <button class="pagination__btn pagination__btn-last" type="button">Last</button>
+            </div>
+            <div class="modal-window-for-delete-movie">
+                <p class="modal-window-for-delete-movie__answer">Delete this video?</p>
+                <div class="modal-window-for-delete-movie__current-movie-img"></div>
+                <div class="modal-window-for-delete-movie__current-movie-title"></div>
+                <button class="modal-window-for-delete-movie__btn-yes modal-window-for-delete-movie__btn">Yes</button>
+                <button class="modal-window-for-delete-movie__btn-cancel modal-window-for-delete-movie__btn">Cancel</button>
+            </div>
+        </main>
+        <script src="index.js"></script>
+    </body>
+</html>
