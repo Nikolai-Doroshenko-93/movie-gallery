@@ -110,12 +110,14 @@ function moviePagination() {
             for(let i=0; i<item.length; i++) {
                 item[i].style.display = 'none';
             }
-            item[0].style.display = 'flex';
+            // item[0].style.display = 'flex';
             item[0].classList.add('pagination__ul__current');
-            item[1].style.display = 'flex';
-            item[2].style.display = 'flex';
-            item[3].style.display = 'flex';
-            item[4].style.display = 'flex';
+            let itemSlice = Array.from(item).slice(0, 5);
+                itemSlice.forEach((e) => e.style.display = 'flex');
+            // item[1].style.display = 'flex';
+            // item[2].style.display = 'flex';
+            // item[3].style.display = 'flex';
+            // item[4].style.display = 'flex';
             currentPage = 1;
         })
     }
@@ -133,10 +135,12 @@ function moviePagination() {
             for(let i=0; i<item.length; i++) {
                 item[i].style.display = 'none';
             }
-            item[k].style.display = 'flex';
+            let itemSlice = Array.from(item).slice(k-2, k+1);
+                    itemSlice.forEach((e) => e.style.display = 'flex');
+            // item[k].style.display = 'flex';
             item[k].classList.add('pagination__ul__current');
-            item[k-1].style.display = 'flex';
-            item[k-2].style.display = 'flex';
+            // item[k-1].style.display = 'flex';
+            // item[k-2].style.display = 'flex';
             currentPage = k+1;
         })
     }
@@ -163,23 +167,29 @@ function moviePagination() {
                 item[currentPaginationItem].classList.add('pagination__ul__current');
                 item[currentPaginationItem].style.display = 'flex';  
                 if(currentPaginationItem == 0) {
-                    item[currentPaginationItem].style.display = 'flex';
-                    item[currentPaginationItem+1].style.display = 'flex';
-                    item[currentPaginationItem+2].style.display = 'flex';
-                    item[currentPaginationItem+3].style.display = 'flex';
-                    item[currentPaginationItem+4].style.display = 'flex';
+                    let itemSlice = Array.from(item).slice(currentPaginationItem, currentPaginationItem+5);
+                    itemSlice.forEach((e) => e.style.display = 'flex');
+                    // item[currentPaginationItem].style.display = 'flex';
+                    // item[currentPaginationItem+1].style.display = 'flex';
+                    // item[currentPaginationItem+2].style.display = 'flex';
+                    // item[currentPaginationItem+3].style.display = 'flex';
+                    // item[currentPaginationItem+4].style.display = 'flex';
                 } 
                 if(currentPaginationItem == 1) {
-                    item[currentPaginationItem-1].style.display = 'flex';
-                    item[currentPaginationItem].style.display = 'flex';
-                    item[currentPaginationItem+1].style.display = 'flex';
-                    item[currentPaginationItem+2].style.display = 'flex';
-                    item[currentPaginationItem+3].style.display = 'flex';
+                    let itemSlice = Array.from(item).slice(currentPaginationItem-1, currentPaginationItem+4);
+                    itemSlice.forEach((e) => e.style.display = 'flex');
+                    // item[currentPaginationItem-1].style.display = 'flex';
+                    // item[currentPaginationItem].style.display = 'flex';
+                    // item[currentPaginationItem+1].style.display = 'flex';
+                    // item[currentPaginationItem+2].style.display = 'flex';
+                    // item[currentPaginationItem+3].style.display = 'flex';
                 }
                 if(currentPaginationItem > 1) {
-                    item[currentPaginationItem-2].style.display = 'flex';
-                    item[currentPaginationItem-1].style.display = 'flex';
-                    item[currentPaginationItem].style.display = 'flex';
+                    let itemSlice = Array.from(item).slice(currentPaginationItem-2, currentPaginationItem+1);
+                    itemSlice.forEach((e) => e.style.display = 'flex');
+                    // item[currentPaginationItem-2].style.display = 'flex';
+                    // item[currentPaginationItem-1].style.display = 'flex';
+                    // item[currentPaginationItem].style.display = 'flex';
                     if(item[currentPaginationItem+1]) {
                         item[currentPaginationItem+1].style.display = 'flex';
                     }
@@ -192,9 +202,9 @@ function moviePagination() {
         })   
     }
     function btnPreviosPage() {
-        let btnNext = document.querySelector('.pagination__btn-previos');
+        let btnPrevios = document.querySelector('.pagination__btn-previos');
 
-        btnNext.addEventListener('click' , () => {
+        btnPrevios.addEventListener('click' , () => {
             if(currentPage>1) {
                 currentPage = +currentPage-1;
                 let start = (currentPage - 1) * notesOnPage;
@@ -213,24 +223,25 @@ function moviePagination() {
                 }
                 item[currentPaginationItem].classList.add('pagination__ul__current');
                 item[currentPaginationItem].style.display = 'flex';  
-                if(currentPaginationItem == 0) {
-                    item[currentPaginationItem].style.display = 'flex';
-                    item[currentPaginationItem+1].style.display = 'flex';
-                    item[currentPaginationItem+2].style.display = 'flex';
-                    item[currentPaginationItem+3].style.display = 'flex';
-                    item[currentPaginationItem+4].style.display = 'flex';
+                if(currentPaginationItem == 0) {  
+                    let itemSlice = Array.from(item).slice(currentPaginationItem, currentPaginationItem+5);
+                    itemSlice.forEach((e) => e.style.display = 'flex');
                 } 
                 if(currentPaginationItem == 1) {
-                    item[currentPaginationItem-1].style.display = 'flex';
-                    item[currentPaginationItem].style.display = 'flex';
-                    item[currentPaginationItem+1].style.display = 'flex';
-                    item[currentPaginationItem+2].style.display = 'flex';
-                    item[currentPaginationItem+3].style.display = 'flex';
+                    let itemSlice = Array.from(item).slice(currentPaginationItem-1, currentPaginationItem+4);
+                    itemSlice.forEach((e) => e.style.display = 'flex');
+                    // item[currentPaginationItem-1].style.display = 'flex';
+                    // item[currentPaginationItem].style.display = 'flex';
+                    // item[currentPaginationItem+1].style.display = 'flex';
+                    // item[currentPaginationItem+2].style.display = 'flex';
+                    // item[currentPaginationItem+3].style.display = 'flex';
                 }
                 if(currentPaginationItem > 1) {
-                    item[currentPaginationItem-2].style.display = 'flex';
-                    item[currentPaginationItem-1].style.display = 'flex';
-                    item[currentPaginationItem].style.display = 'flex';
+                    let itemSlice = Array.from(item).slice(currentPaginationItem-2, currentPaginationItem+1);
+                    itemSlice.forEach((e) => e.style.display = 'flex');
+                    // item[currentPaginationItem-2].style.display = 'flex';
+                    // item[currentPaginationItem-1].style.display = 'flex';
+                    // item[currentPaginationItem].style.display = 'flex';
                     if(item[currentPaginationItem+1]) {
                         item[currentPaginationItem+1].style.display = 'flex';
                     }

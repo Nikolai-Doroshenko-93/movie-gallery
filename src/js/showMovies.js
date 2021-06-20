@@ -151,33 +151,35 @@ export function showMovies (data) {
                 pageMovie.innerHTML = `
                 <div class="modal-window-for-movie-page">
                     <div class="modal-window-for-movie-page__back-btn">
-                        Back
+                        x
                     </div>
-                    <div class="modal-window-for-movie-page__box-img">
-                        <img 
-                            src="${'https://image.tmdb.org/t/p/w500' + currentMovie.backdrop_path}"
-                            class="modal-window-for-movie-page__box-img__img">
-                        </img>
-                    </div>
-                    <div class="modal-window-for-movie-page__box-info">
-                        <div class="modal-window-for-movie-page__box-info__title">
-                            <strong>${currentMovie.title}</strong>
+                    <div class="modal-window-for-movie-page__block">
+                        <div class="modal-window-for-movie-page__box-img">
+                            <img 
+                                src="${'https://image.tmdb.org/t/p/w500' + currentMovie.backdrop_path}"
+                                class="modal-window-for-movie-page__box-img__img">
+                            </img>
                         </div>
-                        <div class="modal-window-for-movie-page__release-date">
-                            <strong>Release date:</strong>
-                            ${formatDate(currentMovie.release_date)}
-                        </div>
-                        <div class="modal-window-for-movie-page__box-info__rating">
-                            <strong>Rating:</strong> 
-                            ${currentMovie.vote_average}
-                        </div>
-                        <div class="modal-window-for-movie-page__box-info__likes">
-                            <strong>Likes:</strong> 
-                            ${currentMovie.vote_count}
-                        </div>
-                        <div class="modal-window-for-movie-page__box-info__adult">
-                            <strong>Adult:</strong> 
-                            ${adult(currentMovie.adult)}
+                        <div class="modal-window-for-movie-page__box-info">
+                            <div class="modal-window-for-movie-page__box-info__title">
+                                <strong>${currentMovie.title}</strong>
+                            </div>
+                            <div class="modal-window-for-movie-page__release-date">
+                                <strong>Release date:</strong>
+                                ${formatDate(currentMovie.release_date)}
+                            </div>
+                            <div class="modal-window-for-movie-page__box-info__rating">
+                                <strong>Rating:</strong> 
+                                ${currentMovie.vote_average}
+                            </div>
+                            <div class="modal-window-for-movie-page__box-info__likes">
+                                <strong>Likes:</strong> 
+                                ${currentMovie.vote_count}
+                            </div>
+                            <div class="modal-window-for-movie-page__box-info__adult">
+                                <strong>Adult:</strong> 
+                                ${adult(currentMovie.adult)}
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -185,12 +187,13 @@ export function showMovies (data) {
                     <p>${currentMovie.overview}</p>
                 </div>
                 `
-                let scrollValue = scrollY;
 
                 let body = document.querySelector('.body');
-                body.scrollIntoView();
                 moviesEl.appendChild(pageMovie);
-                moviesEl.classList.add('movies__container__movie-page-is-active');
+                let bodyOverlay = document.querySelector('.body__overlay');
+                bodyOverlay.style.display = 'block';
+                body.style.overflow = 'hidden';
+                
 
                 let paginationBox = document.querySelector('.pagination');
                 paginationBox.style.display = 'none';
@@ -203,8 +206,15 @@ export function showMovies (data) {
                         paginationBox.style.display = 'flex';
                         selectOfHeader.style.display = 'block';
                         pageMovie.remove();
-                        moviesEl.classList.remove('movies__container__movie-page-is-active');  
-                        scroll(0, scrollValue);
+                        bodyOverlay.style.display = 'none';
+                        body.style.overflow = 'auto';
+                    })
+                    bodyOverlay.addEventListener('click', () => {
+                        paginationBox.style.display = 'flex';
+                        selectOfHeader.style.display = 'block';
+                        pageMovie.remove();
+                        bodyOverlay.style.display = 'none';
+                        body.style.overflow = 'auto';
                     })
                 }
                 moviePageBackBtn ();
