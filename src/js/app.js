@@ -5,12 +5,13 @@ import {moviesEl} from './showMovies';
 /* Your JS Code goes here */
 let movieArr = [];
 
-const requestURL = 'https://api.themoviedb.org/3/discover/movie?api_key=f1bb75d0d0d5b6a759cc2bb11f935daf&page=';
+const requestURL = 'https://kinobd.ru/api/films';
 
 function addMovieInArr() {
     for (let i=1; i<=15; i++) {
         getMovies(requestURL+i);
     }
+    console.log(movieArr)
 }
 addMovieInArr();
 async function getMovies(url) {
@@ -19,6 +20,7 @@ async function getMovies(url) {
     for (let i = 0; i<respData.results.length; i++) {
         movieArr.push(respData.results[i]);
     } 
+    console.log(movieArr)
 }
 async function firstPageMovies(url) {
     let resp = await fetch(url);
